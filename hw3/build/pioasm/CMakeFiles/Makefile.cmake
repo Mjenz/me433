@@ -9,7 +9,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "CMakeFiles/3.29.0/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.29.0/CMakeSystem.cmake"
-  "/Users/michaeljenz/documents/ME433/pico/pico-sdk/tools/pioasm/CMakeLists.txt"
+  "/Users/michaeljenz/Documents/pico/pico-sdk/tools/pioasm/CMakeLists.txt"
   "/opt/homebrew/Cellar/cmake/3.29.0/share/cmake/Modules/CMakeCXXCompiler.cmake.in"
   "/opt/homebrew/Cellar/cmake/3.29.0/share/cmake/Modules/CMakeCXXCompilerABI.cpp"
   "/opt/homebrew/Cellar/cmake/3.29.0/share/cmake/Modules/CMakeCXXInformation.cmake"

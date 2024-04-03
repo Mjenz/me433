@@ -1,9 +1,9 @@
-set(CMAKE_HOST_SYSTEM "Darwin-23.2.0")
+set(CMAKE_HOST_SYSTEM "Darwin-23.4.0")
 set(CMAKE_HOST_SYSTEM_NAME "Darwin")
-set(CMAKE_HOST_SYSTEM_VERSION "23.2.0")
+set(CMAKE_HOST_SYSTEM_VERSION "23.4.0")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "arm64")
 
-include("/Users/michaeljenz/documents/ME433/pico/pico-sdk/cmake/preload/toolchains/pico_arm_gcc.cmake")
+include("/Users/michaeljenz/Documents/pico/pico-sdk/cmake/preload/toolchains/pico_arm_gcc.cmake")
 
 set(CMAKE_SYSTEM "PICO")
 set(CMAKE_SYSTEM_NAME "PICO")

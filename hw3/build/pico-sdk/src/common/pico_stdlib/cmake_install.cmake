@@ -1,4 +1,4 @@
-# Install script for directory: /Users/michaeljenz/documents/ME433/pico/pico-sdk/src/common/pico_stdlib
+# Install script for directory: /Users/michaeljenz/Documents/pico/pico-sdk/src/common/pico_stdlib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

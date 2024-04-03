@@ -4,6 +4,6 @@
 
 method=source_dir
 command=
-source_dir=/Users/michaeljenz/Documents/ME433/pico/pico-sdk/tools/pioasm
+source_dir=/Users/michaeljenz/Documents/pico/pico-sdk/tools/pioasm
 work_dir=
 

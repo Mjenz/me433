@@ -1,4 +1,4 @@
-# Install script for directory: /Users/michaeljenz/documents/ME433/pico/pico-sdk/src/rp2040
+# Install script for directory: /Users/michaeljenz/Documents/pico/pico-sdk/src/rp2040
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,8 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/michaeljenz/documents/ME433/pico/pico-hw/build/pico-sdk/src/rp2040/hardware_regs/cmake_install.cmake")
-  include("/Users/michaeljenz/documents/ME433/pico/pico-hw/build/pico-sdk/src/rp2040/hardware_structs/cmake_install.cmake")
+  include("/Users/michaeljenz/Documents/pico/me433/hw3/build/pico-sdk/src/rp2040/hardware_regs/cmake_install.cmake")
+  include("/Users/michaeljenz/Documents/pico/me433/hw3/build/pico-sdk/src/rp2040/hardware_structs/cmake_install.cmake")
 
 endif()
 

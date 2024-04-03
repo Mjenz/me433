@@ -53,10 +53,10 @@ RM = /opt/homebrew/Cellar/cmake/3.29.0/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/michaeljenz/documents/ME433/pico/pico-hw
+CMAKE_SOURCE_DIR = /Users/michaeljenz/Documents/pico/me433/hw3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/michaeljenz/documents/ME433/pico/pico-hw/build
+CMAKE_BINARY_DIR = /Users/michaeljenz/Documents/pico/me433/hw3/build
 
 # Utility rule file for bs2_default_padded_checksummed_asm.
 
@@ -69,12 +69,12 @@ include pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checks
 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm: pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S
 
 pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S: pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/michaeljenz/documents/ME433/pico/pico-hw/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating bs2_default_padded_checksummed.S"
-	cd /Users/michaeljenz/documents/ME433/pico/pico-hw/build/pico-sdk/src/rp2_common/boot_stage2 && /Users/michaeljenz/anaconda3/bin/python3.11 /Users/michaeljenz/documents/ME433/pico/pico-sdk/src/rp2_common/boot_stage2/pad_checksum -s 0xffffffff /Users/michaeljenz/documents/ME433/pico/pico-hw/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin /Users/michaeljenz/documents/ME433/pico/pico-hw/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/michaeljenz/Documents/pico/me433/hw3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating bs2_default_padded_checksummed.S"
+	cd /Users/michaeljenz/Documents/pico/me433/hw3/build/pico-sdk/src/rp2_common/boot_stage2 && /Users/michaeljenz/anaconda3/bin/python3.11 /Users/michaeljenz/Documents/pico/pico-sdk/src/rp2_common/boot_stage2/pad_checksum -s 0xffffffff /Users/michaeljenz/Documents/pico/me433/hw3/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin /Users/michaeljenz/Documents/pico/me433/hw3/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default_padded_checksummed.S
 
 pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin: pico-sdk/src/rp2_common/boot_stage2/bs2_default.elf
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/michaeljenz/documents/ME433/pico/pico-hw/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating bs2_default.bin"
-	cd /Users/michaeljenz/documents/ME433/pico/pico-hw/build/pico-sdk/src/rp2_common/boot_stage2 && /opt/homebrew/bin/arm-none-eabi-objcopy -Obinary /Users/michaeljenz/documents/ME433/pico/pico-hw/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.elf /Users/michaeljenz/documents/ME433/pico/pico-hw/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/michaeljenz/Documents/pico/me433/hw3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating bs2_default.bin"
+	cd /Users/michaeljenz/Documents/pico/me433/hw3/build/pico-sdk/src/rp2_common/boot_stage2 && /opt/homebrew/bin/arm-none-eabi-objcopy -Obinary /Users/michaeljenz/Documents/pico/me433/hw3/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.elf /Users/michaeljenz/Documents/pico/me433/hw3/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
 
 bs2_default_padded_checksummed_asm: pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm
 bs2_default_padded_checksummed_asm: pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
@@ -87,10 +87,10 @@ pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_as
 .PHONY : pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/build
 
 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/clean:
-	cd /Users/michaeljenz/documents/ME433/pico/pico-hw/build/pico-sdk/src/rp2_common/boot_stage2 && $(CMAKE_COMMAND) -P CMakeFiles/bs2_default_padded_checksummed_asm.dir/cmake_clean.cmake
+	cd /Users/michaeljenz/Documents/pico/me433/hw3/build/pico-sdk/src/rp2_common/boot_stage2 && $(CMAKE_COMMAND) -P CMakeFiles/bs2_default_padded_checksummed_asm.dir/cmake_clean.cmake
 .PHONY : pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/clean
 
 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/depend:
-	cd /Users/michaeljenz/documents/ME433/pico/pico-hw/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/michaeljenz/documents/ME433/pico/pico-hw /Users/michaeljenz/documents/ME433/pico/pico-sdk/src/rp2_common/boot_stage2 /Users/michaeljenz/documents/ME433/pico/pico-hw/build /Users/michaeljenz/documents/ME433/pico/pico-hw/build/pico-sdk/src/rp2_common/boot_stage2 /Users/michaeljenz/documents/ME433/pico/pico-hw/build/pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/michaeljenz/Documents/pico/me433/hw3/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/michaeljenz/Documents/pico/me433/hw3 /Users/michaeljenz/Documents/pico/pico-sdk/src/rp2_common/boot_stage2 /Users/michaeljenz/Documents/pico/me433/hw3/build /Users/michaeljenz/Documents/pico/me433/hw3/build/pico-sdk/src/rp2_common/boot_stage2 /Users/michaeljenz/Documents/pico/me433/hw3/build/pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/depend
 

@@ -4,19 +4,19 @@
 cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
-  "/Users/michaeljenz/Documents/ME433/pico/pico-sdk/tools/elf2uf2"
-  "/Users/michaeljenz/documents/ME433/pico/pico-hw/build/elf2uf2"
-  "/Users/michaeljenz/documents/ME433/pico/pico-hw/build/blink/elf2uf2"
-  "/Users/michaeljenz/documents/ME433/pico/pico-hw/build/blink/elf2uf2/tmp"
-  "/Users/michaeljenz/documents/ME433/pico/pico-hw/build/blink/elf2uf2/src/ELF2UF2Build-stamp"
-  "/Users/michaeljenz/documents/ME433/pico/pico-hw/build/blink/elf2uf2/src"
-  "/Users/michaeljenz/documents/ME433/pico/pico-hw/build/blink/elf2uf2/src/ELF2UF2Build-stamp"
+  "/Users/michaeljenz/Documents/pico/pico-sdk/tools/elf2uf2"
+  "/Users/michaeljenz/Documents/pico/me433/hw3/build/elf2uf2"
+  "/Users/michaeljenz/Documents/pico/me433/hw3/build/blink/elf2uf2"
+  "/Users/michaeljenz/Documents/pico/me433/hw3/build/blink/elf2uf2/tmp"
+  "/Users/michaeljenz/Documents/pico/me433/hw3/build/blink/elf2uf2/src/ELF2UF2Build-stamp"
+  "/Users/michaeljenz/Documents/pico/me433/hw3/build/blink/elf2uf2/src"
+  "/Users/michaeljenz/Documents/pico/me433/hw3/build/blink/elf2uf2/src/ELF2UF2Build-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "/Users/michaeljenz/documents/ME433/pico/pico-hw/build/blink/elf2uf2/src/ELF2UF2Build-stamp/${subDir}")
+    file(MAKE_DIRECTORY "/Users/michaeljenz/Documents/pico/me433/hw3/build/blink/elf2uf2/src/ELF2UF2Build-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "/Users/michaeljenz/documents/ME433/pico/pico-hw/build/blink/elf2uf2/src/ELF2UF2Build-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "/Users/michaeljenz/Documents/pico/me433/hw3/build/blink/elf2uf2/src/ELF2UF2Build-stamp${cfgdir}") # cfgdir has leading slash
 endif()
