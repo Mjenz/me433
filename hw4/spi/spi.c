@@ -14,15 +14,15 @@
 
 #define READ_BIT 0x80
 
-int32_t t_fine;
+// int32_t t_fine;
 
-uint16_t dig_T1;
-int16_t dig_T2, dig_T3;
-uint16_t dig_P1;
-int16_t dig_P2, dig_P3, dig_P4, dig_P5, dig_P6, dig_P7, dig_P8, dig_P9;
-uint8_t dig_H1, dig_H3;
-int8_t dig_H6;
-int16_t dig_H2, dig_H4, dig_H5;
+// uint16_t dig_T1;
+// int16_t dig_T2, dig_T3;
+// uint16_t dig_P1;
+// int16_t dig_P2, dig_P3, dig_P4, dig_P5, dig_P6, dig_P7, dig_P8, dig_P9;
+// uint8_t dig_H1, dig_H3;
+// int8_t dig_H6;
+// int16_t dig_H2, dig_H4, dig_H5;
 
 void printBinary(unsigned long num) {
     if (num > 1)
@@ -61,42 +61,41 @@ static void write_register(uint8_t AorB, long data) {
 
     buf[0] = one_result;// first 8 bit number
     buf[1] = two_result; // second 8 bit number
-    char message[50];
-    sprintf(message,"AorB %d \t given %d data %lu %lu %lu %lu\n",AorB, given, data, full,buf[0],buf[1]);
-    printf(message);
-    printf("AorB    ");
-    printBinary(AorB);
-    printf("   given   ");
-    printBinary(given);
-    printf("    data    ");
-    printBinary(data);
-    printf("   full    ");
-    printBinary(full);
-    printf("   buf[0]    ");
-    printBinary(buf[0]);
-    printf("     buf[1]    ");
-    printBinary(buf[1]);
-    printf("\n\n");
+    // char message[50];
+    // sprintf(message,"AorB %d \t given %d data %lu %lu %lu %lu\n",AorB, given, data, full,buf[0],buf[1]);
+    // printf(message);
+    // printf("AorB    ");
+    // printBinary(AorB);
+    // printf("   given   ");
+    // printBinary(given);
+    // printf("    data    ");
+    // printBinary(data);
+    // printf("   full    ");
+    // printBinary(full);
+    // printf("   buf[0]    ");
+    // printBinary(buf[0]);
+    // printf("     buf[1]    ");
+    // printBinary(buf[1]);
+    // printf("\n\n");
 
     cs_select(); // make this pin go low
     // here is a pointer (buf) to the array of data i would like to send it has two componenets
     spi_write_blocking(spi_default, buf, 2); 
     cs_deselect(); // make this pin go high
-    // sleep_ms(10);
 }
 
-static void read_registers(uint8_t reg, uint8_t *buf, uint16_t len) {
-    // For this particular device, we send the device the register we want to read
-    // first, then subsequently read from the device. The register is auto incrementing
-    // so we don't need to keep sending the register we want, just the first.
-    reg |= READ_BIT;
-    cs_select();
-    spi_write_blocking(spi_default, &reg, 1);
-    sleep_ms(10);
-    spi_read_blocking(spi_default, 0, buf, len);
-    cs_deselect();
-    // sleep_ms(10);
-}
+// static void read_registers(uint8_t reg, uint8_t *buf, uint16_t len) {
+//     // For this particular device, we send the device the register we want to read
+//     // first, then subsequently read from the device. The register is auto incrementing
+//     // so we don't need to keep sending the register we want, just the first.
+//     reg |= READ_BIT;
+//     cs_select();
+//     spi_write_blocking(spi_default, &reg, 1);
+//     sleep_ms(10);
+//     spi_read_blocking(spi_default, 0, buf, len);
+//     cs_deselect();
+//     // sleep_ms(10);
+// }
 
 #endif
 
@@ -107,8 +106,8 @@ int main() {
 //     puts("Default SPI pins were not defined");
 // #else
     char msg[100];
-    scanf(msg, "%s");
-    printf("Hello, bme280! Reading raw data from registers via SPI...\n");
+    // scanf(msg, "%s");
+    // printf("Hello, bme280! Reading raw data from registers via SPI...\n");
 
     // LED to make sure its running
     const uint LED_PIN = PICO_DEFAULT_LED_PIN;
@@ -116,7 +115,7 @@ int main() {
     gpio_set_dir(LED_PIN, GPIO_OUT);
 
     // This example will use SPI0 at 0.5MHz.
-    spi_init(spi_default, 8000 * 1000);
+    spi_init(spi_default, 20000000);
     gpio_set_function(PICO_DEFAULT_SPI_RX_PIN, GPIO_FUNC_SPI);
     gpio_set_function(PICO_DEFAULT_SPI_SCK_PIN, GPIO_FUNC_SPI);
     gpio_set_function(PICO_DEFAULT_SPI_TX_PIN, GPIO_FUNC_SPI);
@@ -127,11 +126,9 @@ int main() {
     gpio_put(PICO_DEFAULT_SPI_CSN_PIN, 1); // set it high
 
     // See if SPI is working - interrograte the device for its I2C ID number, should be 0x60
-    uint8_t id;
-    read_registers(0xD0, &id, 1);
-    printf("Chip ID is 0x%x\n", id);
-
-    // write_register(0b00111111, 0b11111111); // example
+    // uint8_t id;
+    // read_registers(0xD0, &id, 1);
+    // printf("Chip ID is 0x%x\n", id);
 
 
     // sin wave
@@ -149,7 +146,7 @@ int main() {
 
     // triangle wave
 
-    float slope = 1024.0/49.0/2/2;
+    float slope = 1024.0/49.0;
     float previous = 0;
     unsigned long array2[length];
 
@@ -163,36 +160,38 @@ int main() {
 
 
     int counter = 0;
-    int pin = 0; // 0 --> outA; 1 --> outB
+    int pin = 0; 
 
     // sin wave
-    // while (true) {
-    //     // LED on
-    //     gpio_put(LED_PIN, 1);
-
-    //     write_register(pin, array[counter]);
-    //     // sprintf(message,"%lu\n",array[counter]);
-    //     // printf(message);
-    //     counter = counter + 1;
-    //     if (counter > 99){
-    //         counter = 0;
-    //     }
-
-    // }
-
-    // triangle wave
-     while (true) {
+    while (true) {
         // LED on
         gpio_put(LED_PIN, 1);
 
-        write_register(pin, array2[counter]);
+        write_register(pin, array[counter]);
         // sprintf(message,"%lu\n",array[counter]);
         // printf(message);
         counter = counter + 1;
         if (counter > 99){
             counter = 0;
         }
+        sleep_ms(5);
 
     }
+
+    // triangle wave
+    //  while (true) {
+    //     // LED on
+    //     gpio_put(LED_PIN, 1);
+
+    //     write_register(pin, array2[counter]);
+    //     // sprintf(message,"%lu\n",array[counter]);
+    //     // printf(message);
+    //     counter = counter + 1;
+    //     if (counter > 99){
+    //         counter = 0;
+    //     }
+    //     sleep_ms(10);
+
+    // }
 
 }
