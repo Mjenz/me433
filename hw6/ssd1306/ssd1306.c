@@ -13,7 +13,7 @@ unsigned char SSD1306_ADDRESS = 0b0111100; // 7bit i2c address FIXED
 unsigned char ssd1306_buffer[513]; // 128x32/8. Every bit is a pixel except first byte
 
 
-void ssd1306_setup() {
+void ssd1306_setup(void) {
     // first byte in ssd1306_buffer is a command
     ssd1306_buffer[0] = 0x40;
     // give a little delay for the ssd1306 to power up
