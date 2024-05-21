@@ -30,38 +30,25 @@ static int chars_rxed = 0;
 
 volatile int counter = 0;
 volatile int input;
-volatile int tracker[50];
+volatile char tracker[50];
 
 // RX interrupt handler
 void on_uart_rx() {
-    // printf("ON UART RX\n ");
     while (uart_is_readable(UART_ID)) {
-            // printf("WHILE STRING IS READABLE\n ");
-
         uint8_t ch = uart_getc(UART_ID);
 
-        // // if it is a newline character, go to the next line unless we have maxed out the screen
-        // // otherwise wipe the screen and start over
-        if (ch =='\r') {
+        if (ch =='\n') {
             // printf("WHILE STRING IS READABLE\n %d",ch);
-
             char ms[50];
+            sprintf(ms,"From pico: %s\r\n", tracker);
+            printf(ms);
             counter = 0;
-            while(tracker[counter] != '\0'){
-                sprintf(ms,"%d",tracker[counter]);
-                printf(ms);
-                tracker[counter] = '\0';
-                counter = counter + 1;
-            }
-            counter = 0;
-            // sprintf(ms,"From serial %d", chars_rxed);
-            chars_rxed = 0;
-            printf("\n");
+            tracker[0] = '\0';
+
             
         } else {
-            tracker[counter] = ch - 48;
+            tracker[counter] = ch;
             counter = counter + 1;
-            // printf("char recorded");
         }
         chars_rxed++;
     }
@@ -113,17 +100,16 @@ int main() {
 
     // intialize functions
     char ms[1];
-    int * in;
+    char message[90];
     while(1){
-        // uart_puts(UART_ID,"6");
-        scanf("%d",&in);
-        sprintf(ms,"%d\n",in);
+        tight_loop_contents();
+        scanf("%s",ms);
         uart_puts(UART_ID, ms);
-        sprintf(ms,"You typed: %d\n",in);
-        printf(ms);
-        // gpio_put(PICO_DEFAULT_LED_PIN,1);
-        // sleep_ms(50);
-        // gpio_put(PICO_DEFAULT_LED_PIN,0);
+        sprintf(message,"You typed: %s\n",ms);
+        printf(message);
+        gpio_put(PICO_DEFAULT_LED_PIN,1);
+        sleep_ms(50);
+        gpio_put(PICO_DEFAULT_LED_PIN,0);
         
     }
 }
